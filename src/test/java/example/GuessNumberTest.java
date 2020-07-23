@@ -92,10 +92,10 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_false_when_judge_guess_number_legal_given_input_number_12346(){
+    void should_return_false_when_judge_guess_number_legal_given_input_number_1234(){
         //given
         GuessNumber guessNumber = new GuessNumber();
-        int[] guessNum = {1,2,3,4,6};
+        int[] guessNum = {12,2,3,4};
 
         //when
         boolean result = guessNumber.isLegalGuessNum(guessNum);
