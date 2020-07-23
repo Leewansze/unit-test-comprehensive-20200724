@@ -24,9 +24,9 @@ public class GuessNumber {
                 answerIndex = answerList.indexOf(answerList.get(i));
                 guessIndex = guessList.indexOf(guessList.get(i));
                 if(answerIndex == guessIndex){
-                    countA++;
-                }else{
                     countB++;
+                }else{
+                    countA++;
                 }
             }
         }
