@@ -15,6 +15,11 @@ public class Main {
         while(sc.hasNextShort()){
             for(int i = 0; i < guess.length; i++){
                 guess[i] = sc.nextInt();
+
+            }
+            if(!(guessNumber.isLegalGuessNum(guess))){
+                System.out.println("illegal number input, try again");
+                continue;
             }
             countInputTime++;
             if(countInputTime == 6){
