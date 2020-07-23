@@ -10,27 +10,24 @@ public class GuessNumber {
         int countA = 0;
         int countB = 0;
         String result;
-        List<Integer> answerList = new ArrayList<>();
-        List<Integer> guessList = new ArrayList<>();
+        ArrayList<Integer> answerList = new ArrayList<>();
+        ArrayList<Integer> guessList = new ArrayList<>();
         for(int i = 0; i< answer.length; i++){
-            answerList.add(answer[i]);
+            answerList.add(i, answer[i]);
         }
         for(int i = 0; i< guessNum.length; i++){
-            guessList.add(guessNum[i]);
+            guessList.add(i, guessNum[i]);
         }
 
         for(int i = 0; i < guessNum.length; i++){
             if(answerList.contains(guessList.get(i))){
-                answerIndex = answerList.indexOf(answerList.get(i));
-                guessIndex = guessList.indexOf(guessList.get(i));
-                if(answerIndex == guessIndex){
-                    countB++;
-                }else{
+                countB++;
+                if(answerList.get(i) == guessList.get(i)){
                     countA++;
                 }
             }
         }
-        result = String.format("%dA%dB", countA, countB);
+        result = String.format("%dA%dB", countA, (countB - countA));
         return result;
 
     }
