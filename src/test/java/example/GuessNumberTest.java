@@ -88,4 +88,17 @@ public class GuessNumberTest {
         //then
         assertEquals("2A0B", result);
     }
+
+    @Test
+    void should_return_false_when_judge_guess_number_legal_given_input_number_12346(){
+        //given
+        GuessNumber guessNumber = new GuessNumber();
+        int[] guessNum = {1,2,3,4,6};
+
+        //when
+        boolean result = guessNumber.isLegalGuessNum(guessNum);
+
+        //then
+        assertEquals(false, result);
+    }
 }
