@@ -4,7 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuessNumber {
+    private int guessTimes;
+
+    public GuessNumber() {
+        this.guessTimes = 0;
+    }
+
     public String guess(int[] guessNum, int[] answer) {
+        if(!(vailInputTime(answer))){
+            return "wrong input";
+        }
         int answerIndex;
         int guessIndex;
         int countA = 0;
@@ -42,5 +51,14 @@ public class GuessNumber {
             }
         }
         return true;
+    }
+
+    public Boolean vailInputTime(int[] guessNum) {
+        Boolean valid = true;
+        this.guessTimes++;
+        if(this.guessTimes > 6){
+            valid = false;
+        }
+        return valid;
     }
 }
