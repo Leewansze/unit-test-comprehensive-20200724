@@ -31,4 +31,16 @@ public class GuessNumber {
         return result;
 
     }
+
+    public boolean isLegalGuessNum(int[] guessNum) {
+        if(guessNum.length != 4){
+            return false;
+        }
+        for(int index = 0; index < guessNum.length; index++){
+            if(guessNum[index] < 0 || guessNum[index] > 9){
+                return false;
+            }
+        }
+        return true;
+    }
 }
