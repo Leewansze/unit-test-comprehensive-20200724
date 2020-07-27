@@ -129,14 +129,10 @@ public class GuessNumberTest {
         int[] answer = answerGenerator.answerNumber();
 
         //when
-        String result = guessNumber.guess(guessNum, answer);
-        result = guessNumber.guess(guessNum, answer);
-        result = guessNumber.guess(guessNum,answer);
-        result = guessNumber.guess(guessNum, answer);
-        result = guessNumber.guess(guessNum, answer);
-        result = guessNumber.guess(guessNum, answer);
-        result = guessNumber.guess(guessNum, answer);
-        result = guessNumber.guess(guessNum, answer);
+        String result = null;
+        for(int i = 0; i < 8; i++){
+            result = guessNumber.guess(guessNum, answer);
+        }
 
         //then
         assertEquals("wrong input", result);
