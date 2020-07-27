@@ -1,7 +1,9 @@
 package example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GuessNumber{
     private int guessTimes;
@@ -17,14 +19,14 @@ public class GuessNumber{
         int countA = 0;
         int countB = 0;
         String result;
-        ArrayList<Integer> answerList = new ArrayList<>();
-        ArrayList<Integer> guessList = new ArrayList<>();
-        for(int i = 0; i< answer.length; i++){
-            answerList.add(i, answer[i]);
-        }
-        for(int i = 0; i< guessNum.length; i++){
-            guessList.add(i, guessNum[i]);
-        }
+        List<Integer> answerList = Arrays
+                .stream(answer)
+                .boxed()
+                .collect(Collectors.toList());;
+        List<Integer> guessList = Arrays
+                .stream(guessNum)
+                .boxed()
+                .collect(Collectors.toList());
 
         for(int i = 0; i < guessNum.length; i++){
             if(answerList.contains(guessList.get(i))){
