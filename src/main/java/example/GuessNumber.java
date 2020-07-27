@@ -45,12 +45,7 @@ public class GuessNumber{
         if(guessNum.length != 4){
             return false;
         }
-        for (int i : guessNum) {
-            if (i < 0 || i > 9) {
-                return false;
-            }
-        }
-        return true;
+        return Arrays.stream(guessNum).noneMatch(i -> i < 0 || i > 9);
     }
 
     public Boolean vailInputTime(int[] guessNum) {
