@@ -106,7 +106,7 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_false_when_judge_guess_number_legal_given_input_number_1234(){
+    void should_return_false_when_judge_guess_number_legal_given_input_number_12234(){
         //given
         GuessNumber guessNumber = new GuessNumber();
         int[] guessNum = {12,2,3,4};
