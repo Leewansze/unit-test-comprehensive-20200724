@@ -21,7 +21,7 @@ public class GuessNumber{
         List<Integer> answerList = Arrays
                 .stream(answer)
                 .boxed()
-                .collect(Collectors.toList());;
+                .collect(Collectors.toList());
         List<Integer> guessList = Arrays
                 .stream(guessNum)
                 .boxed()
