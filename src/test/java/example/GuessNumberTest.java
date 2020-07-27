@@ -3,6 +3,7 @@ package example;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class GuessNumberTest {
     @Test
@@ -10,9 +11,11 @@ public class GuessNumberTest {
         //given
         GuessNumber guessNumber = new GuessNumber();
 //        AnswerGeneratorImp answerGeneratorimp = new TestAnswerGenerator();
+        AnswerGenerator answerGenerator = mock(AnswerGeneratorImp.class);
+        when(answerGenerator.answerNumber()).thenReturn(new int[]{1, 2, 3, 4});
 
         int[] guessNum = {1,2,3,4};
-        int[] answer = {1,2,3,4};
+        int[] answer = answerGenerator.answerNumber();
 
         //when
         String result = guessNumber.guess(guessNum, answer);
@@ -25,8 +28,11 @@ public class GuessNumberTest {
     void should_return_0A0B_when_guess_given_answer_1234_and_input_guess_5678() {
         //given
         GuessNumber guessNumber = new GuessNumber();
+        AnswerGenerator answerGenerator = mock(AnswerGeneratorImp.class);
+        when(answerGenerator.answerNumber()).thenReturn(new int[]{1, 2, 3, 4});
+
         int[] guessNum = {5,6,7,8};
-        int[] answer = {1,2,3,4};
+        int[] answer = answerGenerator.answerNumber();
 
         //when
         String result = guessNumber.guess(guessNum, answer);
@@ -39,8 +45,11 @@ public class GuessNumberTest {
     void should_return_0A4B_when_guess_given_answer_1234_and_input_guess_4312() {
         //given
         GuessNumber guessNumber = new GuessNumber();
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.answerNumber()).thenReturn(new int[]{1, 2, 3, 4});
+
         int[] guessNum = {4,3,1,2};
-        int[] answer = {1,2,3,4};
+        int[] answer = answerGenerator.answerNumber();
 
         //when
         String result = guessNumber.guess(guessNum, answer);
@@ -53,8 +62,11 @@ public class GuessNumberTest {
     void should_return_0A2B_when_guess_given_answer_1234_and_guess_3456() {
         //given
         GuessNumber guessNumber = new GuessNumber();
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.answerNumber()).thenReturn(new int[]{1, 2, 3, 4});
+
         int[] guessNum = {3,4,5,6};
-        int[] answer = {1,2,3,4};
+        int[] answer = answerGenerator.answerNumber();
 
         //when
         String result = guessNumber.guess(guessNum, answer);
@@ -81,8 +93,11 @@ public class GuessNumberTest {
     void should_return_2A0B_when_guess_given_answer_1234_and_guess_1256() {
         //given
         GuessNumber guessNumber = new GuessNumber();
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.answerNumber()).thenReturn(new int[]{1, 2, 3, 4});
+
         int[] guessNum = {1,2,5,6};
-        int[] answer = {1,2,3,4};
+        int[] answer = answerGenerator.answerNumber();
 
         //when
         String result = guessNumber.guess(guessNum, answer);
@@ -108,8 +123,11 @@ public class GuessNumberTest {
     void should_return_wrong_input_when_guess_more_than_6_given_answer_1234() {
         //given
         GuessNumber guessNumber = new GuessNumber();
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.answerNumber()).thenReturn(new int[]{1, 2, 3, 4});
+
         int[] guessNum = {4,5,7,9};
-        int[] answer = {1,2,3,4};
+        int[] answer = answerGenerator.answerNumber();
 
         //when
         String result = guessNumber.guess(guessNum, answer);
@@ -122,7 +140,7 @@ public class GuessNumberTest {
         result = guessNumber.guess(guessNum, answer);
 
         //then
-
+//        assertEquals(times(guessNumber.guess(any(),any())), 6);
         assertEquals("wrong input", result);
     }
 }
