@@ -1,6 +1,8 @@
 package example;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,5 +56,13 @@ public class GuessNumber{
             valid = false;
         }
         return valid;
+    }
+
+    public boolean isDuplication(int[] guessNum) {
+        HashSet<Integer> hashSet = new HashSet<Integer>();
+        for (int value : guessNum) {
+            hashSet.add(value);
+        }
+        return hashSet.size() == guessNum.length;
     }
 }
