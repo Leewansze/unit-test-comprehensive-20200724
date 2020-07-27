@@ -28,11 +28,20 @@ public class Main {
             if(countInputTime >= 6){
                 break;
             }
+            if (isWin(guessNumber, answer, guess)) { break; }
             System.out.println(guessNumber.guess(guess, answer));
         }
-        System.out.printf("The answer is\n");
-        for(int i = 0;i < answer.length; i++){
-            System.out.print(answer[i]);
+        System.out.print("The answer is\n");
+        for (int value : answer) {
+            System.out.print(value);
         }
+    }
+
+    private static boolean isWin(GuessNumber guessNumber, int[] answer, int[] guess) {
+        if(guessNumber.guess(guess, answer).equals("4A0B")){
+            System.out.println("You are win");
+            return true;
+        }
+        return false;
     }
 }
