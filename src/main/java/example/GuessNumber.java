@@ -16,8 +16,8 @@ public class GuessNumber{
         if(!(vailInputTime(answer))){
             return "wrong input";
         }
-        int countA = 0;
-        int countB = 0;
+        int correctNum = 0;
+        int correctPosition = 0;
         String result;
         List<Integer> answerList = Arrays
                 .stream(answer)
@@ -30,13 +30,13 @@ public class GuessNumber{
 
         for(int i = 0; i < guessNum.length; i++){
             if(answerList.contains(guessList.get(i))){
-                countB++;
+                correctPosition++;
                 if(answerList.get(i).equals(guessList.get(i))){
-                    countA++;
+                    correctNum++;
                 }
             }
         }
-        result = String.format("%dA%dB", countA, (countB - countA));
+        result = String.format("%dA%dB", correctNum, (correctPosition - correctNum));
         return result;
 
     }
