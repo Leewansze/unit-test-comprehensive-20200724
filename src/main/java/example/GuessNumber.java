@@ -3,7 +3,7 @@ package example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GuessNumber {
+public class GuessNumber{
     private int guessTimes;
 
     public GuessNumber() {
@@ -14,8 +14,6 @@ public class GuessNumber {
         if(!(vailInputTime(answer))){
             return "wrong input";
         }
-        int answerIndex;
-        int guessIndex;
         int countA = 0;
         int countB = 0;
         String result;
@@ -31,7 +29,7 @@ public class GuessNumber {
         for(int i = 0; i < guessNum.length; i++){
             if(answerList.contains(guessList.get(i))){
                 countB++;
-                if(answerList.get(i) == guessList.get(i)){
+                if(answerList.get(i).equals(guessList.get(i))){
                     countA++;
                 }
             }
@@ -45,8 +43,8 @@ public class GuessNumber {
         if(guessNum.length != 4){
             return false;
         }
-        for(int index = 0; index < guessNum.length; index++){
-            if(guessNum[index] < 0 || guessNum[index] > 9){
+        for (int i : guessNum) {
+            if (i < 0 || i > 9) {
                 return false;
             }
         }
@@ -54,7 +52,7 @@ public class GuessNumber {
     }
 
     public Boolean vailInputTime(int[] guessNum) {
-        Boolean valid = true;
+        boolean valid = true;
         this.guessTimes++;
         if(this.guessTimes > 6){
             valid = false;
