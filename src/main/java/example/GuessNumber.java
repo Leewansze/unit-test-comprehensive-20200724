@@ -2,7 +2,6 @@ package example;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observer;
 
 public class GuessNumber{
     private int guessTimes;

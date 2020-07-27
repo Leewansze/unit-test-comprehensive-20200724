@@ -10,7 +10,6 @@ public class GuessNumberTest {
     void should_return_4A0B_when_guess_given_answer_1234_and_input_guess_1234() {
         //given
         GuessNumber guessNumber = new GuessNumber();
-//        AnswerGeneratorImp answerGeneratorimp = new TestAnswerGenerator();
         AnswerGenerator answerGenerator = mock(AnswerGeneratorImp.class);
         when(answerGenerator.answerNumber()).thenReturn(new int[]{1, 2, 3, 4});
 
@@ -140,7 +139,6 @@ public class GuessNumberTest {
         result = guessNumber.guess(guessNum, answer);
 
         //then
-//        assertEquals(times(guessNumber.guess(any(),any())), 6);
         assertEquals("wrong input", result);
     }
 }
