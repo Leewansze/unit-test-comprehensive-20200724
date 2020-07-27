@@ -137,4 +137,17 @@ public class GuessNumberTest {
         //then
         assertEquals("wrong input", result);
     }
+
+    @Test
+    void should_return_false_when_guess_number_duplication_given_guess_input_number_1123() {
+        //given
+        GuessNumber guessNumber = new GuessNumber();
+        int[] guessNum = {1,1,2,3};
+
+        //when
+        boolean result = guessNumber.isDuplication(guessNum);
+
+        //then
+        assertEquals(false, result);
+    }
 }
